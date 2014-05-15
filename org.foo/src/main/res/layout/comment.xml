@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp" >
+
+  <TextView
+      android:id="@+id/comment_body"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:textSize="8pt"
+      tools:text="This is some comment on GitHub"
+      android:layout_marginBottom="3dp"/>
+
+  <TextView
+      android:id="@+id/comment_time"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/comment_body"
+      android:textColor="#858585"
+      tools:text="14:34 13/04/2014" />
+
+  <TextView
+      android:id="@+id/comment_author"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/comment_body"
+      android:layout_alignParentRight="true"
+      android:layout_toRightOf="@id/comment_time"
+      android:gravity="right"
+      android:textColor="#858585"
+      tools:text="LuckyMan"/>
+
+</RelativeLayout>

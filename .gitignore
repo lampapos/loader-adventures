@@ -1,0 +1,32 @@
+# OS junk
+.DS_Store
+*~
+
+# Local properties
+dev.properties
+local.properties
+
+# Generated
+gen
+bin
+tmp
+.crashlytics_data
+com_crashlytics_export_strings.xml
+
+# Eclipse
+.project
+.classpath
+.settings
+.checkstyle
+
+# IDEA
+out
+.idea
+*.iml
+
+# Gradle
+build
+!**/cordova/build
+!**/src/**/build
+.gradle
+
