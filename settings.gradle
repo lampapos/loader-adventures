@@ -1,1 +1,1 @@
-include ':org.foo'
+include 'sample'

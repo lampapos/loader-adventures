@@ -8,9 +8,7 @@ import retrofit.http.GET;
 import retrofit.http.Path;
 
 /**
- * // TODO
- *
- * @author Michael Pustovit mpustovit@stanfy.com.ua
+ * Retrofit interface for Github API.
  */
 public interface GithubRepoCommentsRequst {
   @GET("/repos/{owner}/{repo}/comments")

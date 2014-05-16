@@ -1,12 +1,12 @@
 apply plugin: 'android'
 
 android {
-  compileSdkVersion 19
+  compileSdkVersion 18
   buildToolsVersion "19.0.3"
 
   defaultConfig {
     minSdkVersion 15
-    targetSdkVersion 19
+    targetSdkVersion 18
     versionCode 1
     versionName "1.0"
   }
@@ -26,8 +26,9 @@ android {
   sourceSets {
     androidTest.setRoot('src/test')
   }
-
 }
+
+apply plugin: 'android-test'
 
 repositories {
   mavenCentral()
@@ -38,7 +39,8 @@ dependencies {
   compile 'com.squareup.retrofit:retrofit:1.5.0'
   compile 'com.jakewharton:butterknife:5.0.1'
 
-  androidTestCompile 'junit:junit:4.11'
-  androidTestCompile 'org.robolectric:robolectric:2.3-SNAPSHOT'
-  androidTestCompile 'org.mockito:mockito-all:1.9.5'
+  testCompile 'junit:junit:4.11'
+  testCompile 'org.robolectric:robolectric:2.3-SNAPSHOT'
+  testCompile 'org.mockito:mockito-all:1.9.5'
+  testCompile 'com.squareup:fest-android:1.0.8'
 }

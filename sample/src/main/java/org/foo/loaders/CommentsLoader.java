@@ -11,12 +11,20 @@ import java.util.List;
 import retrofit.RestAdapter;
 import retrofit.RetrofitError;
 
+/**
+ * Github repo comments loader.
+ */
 public class CommentsLoader extends AsyncTaskLoader<List<Comment>> {
 
   private List<Comment> comments;
 
-  public CommentsLoader(Context context) {
+  private String owner;
+  private String repo;
+
+  public CommentsLoader(Context context, String owner, String repo) {
     super(context);
+    this.owner = owner;
+    this.repo = repo;
   }
 
   @Override
@@ -31,24 +39,14 @@ public class CommentsLoader extends AsyncTaskLoader<List<Comment>> {
   }
 
   @Override
-  protected void onStopLoading() {
-    cancelLoad();
-  }
-
-  @Override
   public List<Comment> loadInBackground() {
-    try {
-      Thread.sleep(10000);
-    } catch (InterruptedException e) {
-      e.printStackTrace();
-    }
-
     final RestAdapter restAdapter = new RestAdapter.Builder()
         .setEndpoint("https://api.github.com")
+        .setLogLevel(RestAdapter.LogLevel.FULL)
         .build();
 
     try {
-      return restAdapter.create(GithubRepoCommentsRequst.class).getCommentsForRepo("lampapos", "PZKSLabs");
+      return restAdapter.create(GithubRepoCommentsRequst.class).getCommentsForRepo(owner, repo);
     } catch (RetrofitError e) {
       return null;
     }
@@ -70,7 +68,6 @@ public class CommentsLoader extends AsyncTaskLoader<List<Comment>> {
 
   @Override
   protected void onReset() {
-    onStopLoading();
     comments = null;
   }
 }
